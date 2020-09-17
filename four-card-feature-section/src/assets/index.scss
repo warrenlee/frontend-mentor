@@ -1,0 +1,90 @@
+@import "tailwind";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+body {
+    @apply font-body;
+
+    font-size: 15px;
+    color: theme('colors.blue.gray');
+
+    header {
+        @apply w-full;
+
+        @screen md {
+            width: 48%;
+        }
+
+        h1,
+        h2 {
+            @apply font-display;
+
+            color: theme('colors.blue.darker');
+        }
+    }
+
+    main {
+        @apply mb-16;
+
+        .box {
+            @apply self-center w-full rounded-md relative;
+
+            padding: 40px;
+            box-shadow: 12px 12px 16px 12px theme('colors.gray.lighter');
+
+            &::before {
+                content: '';
+                width: 100%;
+                height: 5px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+            }
+
+            h3 {
+                @apply text-xl font-bold mb-2;
+
+                color: theme('colors.blue.darker');
+            }
+
+            p {
+                @apply text-sm w-full mb-8;
+
+                @screen md {
+                    @apply w-3/4;
+                }
+            }
+
+            img {
+                @apply ml-auto;
+            }
+
+            &.supervisor {
+                &::before {
+                    background-color: theme('colors.cyan');
+                }
+            }
+
+            &.team-builder {
+                &::before {
+                    background-color: theme('colors.red');
+                }
+            }
+
+            &.karma {
+                &::before {
+                    background-color: theme('colors.orange');
+                }
+            }
+
+            &.calculator {
+                &::before {
+                    background-color: theme('colors.blue.default');
+                }
+            }
+        }
+    }
+}
